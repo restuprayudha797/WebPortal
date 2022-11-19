@@ -7,23 +7,30 @@ export default function Homepage(props) {
         <div>
             <Head title={props.title} />
 
-            {props.news ? (
-                props.news.map((data, i) => {
-                    return (
-                        <div
-                            key={i}
-                            className="p-4 m-2 bg-white text-black shadow-md rounded-md"
-                        >
-                            <p className="text-2xl">{data.title}</p>
-                            <p className="text-small">{data.description}</p>
-                            <i>{data.category}</i>
-                            <i>{data.author}</i>
-                        </div>
-                    );
-                })
-            ) : (
-                <p>Data Tidak Tersedia</p>
-            )}
+            <table class="table-fixed">
+                <thead>
+                    <tr>
+                        <th>Song</th>
+                        <th>Artist</th>
+                        <th>Year</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {props.news ? (
+                        props.news.map((data, i) => {
+                            return (
+                                <tr key={i}>
+                                    <td>Shining Star</td>
+                                    <td>Earth, Wind, and Fire</td>
+                                    <td>1975</td>
+                                </tr>
+                            );
+                        })
+                    ) : (
+                        <p>Data Tidak Tersedia</p>
+                    )}
+                </tbody>
+            </table>
         </div>
     );
 }
